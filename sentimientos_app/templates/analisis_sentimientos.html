@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Análisis de sentimientos con SpaCy</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="texto">Introduce el texto a analizar:</label>
+        <br>
+        <textarea name="texto" rows="10" cols="50"></textarea>
+        <br>
+        <button type="submit">Analizar</button>
+    </form>
+    {% if texto %}
+        <p>El sentimiento del texto "{{ texto }}" es:<br> {{ sentimiento }}</p>
+    {% endif %}
+{% endblock %}
